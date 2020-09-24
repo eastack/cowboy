@@ -1,4 +1,4 @@
-= Bullfight
+= Cowboy
 
 Download file to Qiniu Cloud COS
 
@@ -29,7 +29,7 @@ jobs:
     name: Download file to Qiniu Cloud COS
     steps:
     - name: Download image to Qiniu Cloud COS
-      uses: rwrr/bullfight@v1
+      uses: rwrr/cowboy@v1.1.1
       with:
         access_key: ${{ secrets.ACCESSKEY }}
         secret_key: ${{ secrets.SECRETKEY }}
