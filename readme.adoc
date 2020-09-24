@@ -10,7 +10,7 @@ Download file to Qiniu Cloud COS
 * `secret_key` Qiniu Cloud https://portal.qiniu.com/user/key[*SecretKey*]
 * `bucket` COS Bucket name
 * `url` Download url
-* `filename` File name
+* `key` Objects resource name
 
 === Optional Choices
 
@@ -39,8 +39,8 @@ jobs:
         secret_key: ${{ secrets.SECRETKEY }}
         url: 'https://upload.wikimedia.org/wikipedia/en/1/19/Role-based_access_control.jpg'
         bucket: 'radix10'
-        filename: 'rbac.jpg'
-	overwrite: 'yes'
+        key: 'rbac.jpg'
+        overwrite: 'yes'
 ----
 
 == Links
