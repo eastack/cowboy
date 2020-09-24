@@ -21,8 +21,8 @@ try {
   
     var putExtra = new qiniu.form_up.PutExtra();
 
-    core.info(options)
-    core.info(`Download ${url} to ${bucket}/${key}...`)
+    core.debug(options)
+    core.debug(`Download ${url} to ${bucket}/${key}...`)
     formUploader.putStream(uploadToken, key, response, putExtra, (error, body, info) => {
       if (error) {
         throw error;
