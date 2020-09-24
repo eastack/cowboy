@@ -12,7 +12,7 @@ const overwrite = core.getInput('overwrite');
 try {
   https.get(url, (response) => {
     var mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
-    var options = overwrite.toLowerCase() === 'yes' ? {scope: bucket + ":" + key} : {scope: bucket};
+    var options = overwrite.toLowerCase() === 'yes' ? {scope: `${bucket}:${key}`} : {scope: bucket};
     var putPolicy = new qiniu.rs.PutPolicy(options);
     var uploadToken = putPolicy.uploadToken(mac);
   
@@ -21,6 +21,7 @@ try {
   
     var putExtra = new qiniu.form_up.PutExtra();
   
+    console.log(`Download ${url} to ${bucket}/${key}...`)
     formUploader.putStream(uploadToken, key, response, putExtra, (error, body, info) => {
       if (error) {
         throw error;
