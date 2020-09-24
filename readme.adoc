@@ -4,26 +4,22 @@ Download file to Qiniu Cloud COS
 
 == Inputs
 
-=== Required Setup
-
-* `access_key` Qiniu Cloud https://portal.qiniu.com/user/key[*AccessKey*]
-* `secret_key` Qiniu Cloud https://portal.qiniu.com/user/key[*SecretKey*]
-* `bucket` COS Bucket name
-* `url` Download url
-* `key` Objects resource name
-
-=== Optional Choices
-
-* `overwrite` Overwrite existing object `default: 'no'`
+* `*access_key*` Qiniu Cloud https://portal.qiniu.com/user/key[*AccessKey*]
+* `*secret_key*` Qiniu Cloud https://portal.qiniu.com/user/key[*SecretKey*]
+* `*bucket*` COS Bucket name
+* `*url*` Download url
+* `*key*` Objects resource name
+* `overwrite` Overwrite existing object `yes/*no*`
 
 == Outputs
 
-* `hash` Object data hash
-* `key` Object name
+* `*hash*` Object data hash
+* `*key*` Object name
 
 == Example usage
 
-[source]
+.Add a GitHub Actions
+[source, yaml]
 ----
 on: [push]
 
@@ -42,6 +38,13 @@ jobs:
         key: 'rbac.jpg'
         overwrite: 'yes'
 ----
+
+.Try to download the file
+[source, bash]
+----
+curl -L "https://yourdomain/rbac.jpg?flag=$RANDOM" -o rbac.jpg # <1>
+----
+<1> Add a random parameter to avoid CDN cache.
 
 == Links
 
