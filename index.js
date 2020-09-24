@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const qiniu = require('qiniu')
-const https = require('https');
+const {https} = require('follow-redirects');
 
 const url = core.getInput('url');
 const accessKey = core.getInput('access_key');
@@ -10,7 +10,7 @@ const key = core.getInput('key');
 const overwrite = core.getInput('overwrite');
 
 try {
-  https.get(url, (response) => {
+  https.get(url, response => {
     var mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
     var options = overwrite.toLowerCase() === 'yes' ? {scope: `${bucket}:${key}`} : {scope: bucket};
     var putPolicy = new qiniu.rs.PutPolicy(options);
@@ -21,8 +21,7 @@ try {
   
     var putExtra = new qiniu.form_up.PutExtra();
 
-    core.info(`Scope is ${options.scope}`)
-    core.info(`Download ${url} to ${bucket}/${key}...`)
+    core.info(`Download ${url} to ${bucket}:${key}`)
     formUploader.putStream(uploadToken, key, response, putExtra, (error, body, info) => {
       if (error) {
         throw error;
