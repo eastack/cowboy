@@ -26,7 +26,7 @@ inputs:
   overwrite:
     description: 'Overwrite existing object'
     required: false
-    default: false
+    default: 'yes'
 
 outputs:
   hash:

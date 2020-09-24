@@ -12,7 +12,7 @@ const overwrite = core.getInput('overwrite');
 try {
   https.get(url, (response) => {
     var mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
-    var options = overwrite ? {scope: bucket + ":" + key} : {scope: bucket};
+    var options = overwrite.toLowerCase() === 'yes' ? {scope: bucket + ":" + key} : {scope: bucket};
     var putPolicy = new qiniu.rs.PutPolicy(options);
     var uploadToken = putPolicy.uploadToken(mac);
   

@@ -14,7 +14,7 @@ Download file to Qiniu Cloud COS
 
 === Optional Choices
 
-* `overwrite` Overwrite existing object `default: false`
+* `overwrite` Overwrite existing object `default: 'no'`
 
 == Outputs
 
@@ -40,7 +40,7 @@ jobs:
         url: 'https://upload.wikimedia.org/wikipedia/en/1/19/Role-based_access_control.jpg'
         bucket: 'radix10'
         filename: 'rbac.jpg'
-	overwrite: true
+	overwrite: 'yes'
 ----
 
 == Links
