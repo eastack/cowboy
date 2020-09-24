@@ -1,0 +1,50 @@
+= Bullfight
+
+Download file to Qiniu Cloud COS
+
+== Inputs
+
+=== Required Setup
+
+* `access_key` Qiniu Cloud https://portal.qiniu.com/user/key[*AccessKey*]
+* `secret_key` Qiniu Cloud https://portal.qiniu.com/user/key[*SecretKey*]
+* `bucket` COS Bucket name
+* `url` Download url
+* `filename` File name
+
+=== Optional Choices
+
+* `overwrite` Overwrite existing object `default: false`
+
+== Outputs
+
+* `hash` Object data hash
+* `key` Object name
+
+== Example usage
+
+[source]
+----
+on: [push]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    name: Download file to Qiniu Cloud COS
+    steps:
+    - name: Download image to Qiniu Cloud COS
+      uses: rwrr/bullfight@v1
+      with:
+        access_key: ${{ secrets.ACCESSKEY }}
+        secret_key: ${{ secrets.SECRETKEY }}
+        url: 'https://upload.wikimedia.org/wikipedia/en/1/19/Role-based_access_control.jpg'
+        bucket: 'radix10'
+        filename: 'rbac.jpg'
+	overwrite: true
+----
+
+== Links
+
+https://portal.qiniu.com/signup?code=1hg7ee91b56xe[Qiniu Cloud]
+
+https://docs.github.com/en/actions/reference/encrypted-secrets[Encrypted secrets - GitHub Docs]

@@ -1,0 +1,39 @@
+name: 'Bullfight'
+
+description: 'Download file to Qiniu Cloud COS'
+
+inputs:
+  access_key:
+    description: 'Qiniu Cloud AccessKey'
+    required: true
+
+  secret_key:
+    description: 'Qiniu Cloud SecretKey'
+    required: true
+
+  bucket:
+    description: 'COS bucket name'
+    required: true
+
+  url:
+    description: 'Download url'
+    required: true
+
+  key:
+    description: 'Objects resource name'
+    required: true
+
+  overwrite:
+    description: 'Overwrite existing object'
+    required: false
+    default: false
+
+outputs:
+  hash:
+    description: 'Object data hash'
+  key:
+    description: 'Object name'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
