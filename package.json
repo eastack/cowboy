@@ -1,26 +1,25 @@
 {
-  "name": "bullfight",
+  "name": "cowboy",
   "version": "1.0.0",
-  "description": "",
+  "description": "= Cowboy",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rwrr/bullfight.git"
+    "url": "git+https://github.com/rwrr/cowboy.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rwrr/bullfight/issues"
+    "url": "https://github.com/rwrr/cowboy/issues"
   },
-  "homepage": "https://github.com/rwrr/bullfight#readme",
+  "homepage": "https://github.com/rwrr/cowboy#readme",
   "dependencies": {
-    "@actions/core": "^1.2.5",
-    "@actions/github": "^4.0.0",
-    "follow-redirects": "^1.13.0",
-    "qiniu": "^7.3.2"
+    "@actions/core": "^1.2.6",
+    "qiniu": "^7.3.2",
+    "request": "^2.88.2"
   }
 }
